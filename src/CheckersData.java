@@ -20,11 +20,9 @@ class CheckersData {
              BLACK = 3,
              BLACK_KING = 4;
 
-   private int[][] board;  // board[r][c] is the contents of row r, column c.  
-   
+   private int[][] board;
 
    public CheckersData() {
-         // Constructor.  Create the board and set it up for a new game.
       board = new int[8][8];
       setUpGame();
    }
@@ -50,14 +48,11 @@ class CheckersData {
             }
          }
       }
-   }  // end setUpGame()
-   
-
-   public int pieceAt(int row, int col) {
-          // Return the contents of the square in the specified row and column.
-       return board[row][col];
    }
    
+   public int pieceAt(int row, int col) {
+       return board[row][col];
+   }
 
    public void setPieceAt(int row, int col, int piece) {
           // Set the contents of the square in the specified row and column.
@@ -66,7 +61,6 @@ class CheckersData {
        board[row][col] = piece;
    }
    
-
    public void makeMove(CheckersMove move) {
          // Make the specified move.  It is assumed that move
          // is non-null and that the move it represents is legal.
@@ -83,9 +77,9 @@ class CheckersData {
       board[toRow][toCol] = board[fromRow][fromCol];
       board[fromRow][fromCol] = EMPTY;
       if (fromRow - toRow == 2 || fromRow - toRow == -2) {
-            // The move is a jump.  Remove the jumped piece from the board.
-         int jumpRow = (fromRow + toRow) / 2;  // Row of the jumped piece.
-         int jumpCol = (fromCol + toCol) / 2;  // Column of the jumped piece.
+            // The move is a jump.
+         int jumpRow = (fromRow + toRow) / 2;  
+         int jumpCol = (fromCol + toCol) / 2; 
          board[jumpRow][jumpCol] = EMPTY;
       }
       if (toRow == 0 && board[toRow][toCol] == RED)
@@ -107,7 +101,7 @@ class CheckersData {
       if (player != RED && player != BLACK)
          return null;
 
-      int playerKing;  // The constant representing a King belonging to player.
+      int playerKing;  
       if (player == RED)
          playerKing = RED_KING;
       else
@@ -174,9 +168,8 @@ class CheckersData {
          return moveArray;
       }
 
-   }  // end getLegalMoves
+   } 
    
-
    public CheckersMove[] getLegalJumpsFrom(int player, int row, int col) {
          // Return a list of the legal jumps that the specified player can
          // make starting from the specified row and column.  If no such
@@ -184,7 +177,7 @@ class CheckersData {
          // to the logic of the getLegalMoves() method.
       if (player != RED && player != BLACK)
          return null;
-      int playerKing;  // The constant representing a King belonging to player.
+      int playerKing;
       if (player == RED)
          playerKing = RED_KING;
       else
@@ -208,7 +201,7 @@ class CheckersData {
             moveArray[i] = (CheckersMove)moves.elementAt(i);
          return moveArray;
       }
-   }  // end getLegalMovesFrom()
+   } 
    
 
    private boolean canJump(int player, int r1, int c1, int r2, int c2, int r3, int c3) {
