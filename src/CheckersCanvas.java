@@ -10,9 +10,9 @@ class CheckersCanvas extends Canvas implements ActionListener, MouseListener {
      // the checkerboard.
 
    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+  * 
+  */
+ private static final long serialVersionUID = 1L;
 Button resignButton;   // Current player can resign by clicking this button.
    Button newGameButton;  // This button starts a new game.  It is enabled only
                           //     when the current game has ended.
